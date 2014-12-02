@@ -1,5 +1,15 @@
 3
-001 3 0 Laptop dla p. Kowalskiego 40
-002 3 2 Robot dla NASA 100
-003 3 0 Paczka indeksów dla PW 0 
-004 3 1 Pude³ka dla IKEA 10 
+001 3 0 Laptop_dla_p.Kowalskiego 40
+002 3 2 Robot_dla_NASA 100
+003 3 0 Paczka_indeksów_dla_PW 50 
+003 3 0 Paczka_indeksów_dla_PW 0
+003 3 0 Paczka_indeksów_dla_PW 80
+003 3 0 Paczka_indeksów_dla_PW 84
+003 3 0 Paczka_indeksów_dla_PW 14
+003 3 0 Paczka_indeksów_dla_PW 90
+003 3 0 Paczka_indeksów_dla_PW 54
+003 3 0 Paczka_indeksów_dla_PW 53
+003 3 0 Paczka_indeksów_dla_PW 12
+003 3 0 Paczka_indeksów_dla_PW 41
+003 3 0 Paczka_indeksów_dla_PW 53
+003 3 0 Paczka_indeksów_dla_PW 16

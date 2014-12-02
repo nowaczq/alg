@@ -9,14 +9,13 @@ package deliverysystem;
  *
  * @author Mateusz
  */
-public class OrderStock<T>
+public class OrderStock
 {
     private int listNumber;
     private int base;
     private int destination;
     private String load;
     private int priority;
-    T []tab;
     
     public OrderStock (int n,int b, int d, String l, int p)
     {
@@ -26,10 +25,13 @@ public class OrderStock<T>
         this.load = l;
         this.priority= p;
     }
-    public OrderStock(int size)
+
+    @Override
+    public String toString()
     {
-        tab=(T[]) new Object[size];
+        return priority + " " + load;
     }
+
     public int getListNumber()
     {
         return this.listNumber;       
@@ -70,6 +72,15 @@ public class OrderStock<T>
     {
         this.priority = p;
     }
-
+    public int compareTo(OrderStock o)
+    {
+        if(this.priority < o.getPriority())
+            return -1;
+        else if(this.priority == o.getPriority())
+            return 0;
+        else 
+            return 1;
+        
+    }
     
 }
