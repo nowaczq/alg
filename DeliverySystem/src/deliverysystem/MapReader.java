@@ -15,6 +15,7 @@ import java.io.IOException;
  */
 public class MapReader {
     private BufferedReader br;
+    private int inf =1000000;
     private String line;
     private String inFile;
     private String mapFile;
@@ -68,11 +69,11 @@ public class MapReader {
     private void connectionMapRead()
     {
         connectionMap = new int[sizeOfMap+1][sizeOfMap+1];
-        connectionMap[0][0] = 0;
-        for(int i=1;i<sizeOfMap;i++)
-            connectionMap[0][i] = i-1;
-        for(int i=1;i<sizeOfMap;i++)
-            connectionMap[i][0] = i-1;
+//        connectionMap[0][0] = 0;
+//        for(int i=1;i<sizeOfMap;i++)
+//            connectionMap[0][i] = i-1;
+//        for(int i=1;i<sizeOfMap;i++)
+//            connectionMap[i][0] = i-1;
         try
         {
           br = new BufferedReader(new FileReader(this.mapFile));
@@ -80,8 +81,12 @@ public class MapReader {
           while((line = br.readLine()) != null)
           {
               String [] p = line.split("\\s+");
-              connectionMap[Integer.parseInt(p[0])+1][Integer.parseInt(p[1])+1] = Integer.parseInt(p[2]);
-              connectionMap[Integer.parseInt(p[1])+1][Integer.parseInt(p[0])+1] = Integer.parseInt(p[2]);
+              connectionMap[Integer.parseInt(p[0])][Integer.parseInt(p[1])] = Integer.parseInt(p[2]);
+              connectionMap[Integer.parseInt(p[1])][Integer.parseInt(p[0])] = Integer.parseInt(p[2]);
+              if(connectionMap[Integer.parseInt(p[0])][Integer.parseInt(p[1])] == 0)
+                  connectionMap[Integer.parseInt(p[0])][Integer.parseInt(p[1])] = this.inf;
+              if(connectionMap[Integer.parseInt(p[0])][Integer.parseInt(p[1])] == 0)
+                  connectionMap[Integer.parseInt(p[0])][Integer.parseInt(p[1])] = this.inf;
           }
           br.close();
         }
