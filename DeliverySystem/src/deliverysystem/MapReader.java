@@ -32,8 +32,17 @@ public class MapReader {
         ioMapRead();
         connectionMapRead();
         orderReader();
+        
     }
-    
+    //POPRAWIĆ WCZYTYWANIE DO GRAFU, BEZ 1 ZBĘDNEGO WIERSZA OPISOWEGO!!!1
+    public int[][] getConnectionMap()
+    {
+        return this.connectionMap;
+    }
+    public int getSizeOfMap()
+    {
+        return this.sizeOfMap;
+    }
     private void ioMapRead() 
     {
         try
