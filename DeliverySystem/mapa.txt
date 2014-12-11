@@ -1,7 +1,6 @@
-6
+5
 0 Radom
 1 Warszawa
 2 Olsztyn
 3 Suwa³ki
 4 Poznañ
-5 Kraków

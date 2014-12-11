@@ -68,12 +68,10 @@ public class MapReader {
     
     private void connectionMapRead()
     {
-        connectionMap = new int[sizeOfMap+1][sizeOfMap+1];
-//        connectionMap[0][0] = 0;
-//        for(int i=1;i<sizeOfMap;i++)
-//            connectionMap[0][i] = i-1;
-//        for(int i=1;i<sizeOfMap;i++)
-//            connectionMap[i][0] = i-1;
+        connectionMap = new int[5][5];
+        for(int i = 0;i<5;i++)
+            for(int j=0;j<5;j++)
+                connectionMap[i][j] = inf;
         try
         {
           br = new BufferedReader(new FileReader(this.mapFile));
@@ -83,10 +81,7 @@ public class MapReader {
               String [] p = line.split("\\s+");
               connectionMap[Integer.parseInt(p[0])][Integer.parseInt(p[1])] = Integer.parseInt(p[2]);
               connectionMap[Integer.parseInt(p[1])][Integer.parseInt(p[0])] = Integer.parseInt(p[2]);
-              if(connectionMap[Integer.parseInt(p[0])][Integer.parseInt(p[1])] == 0)
-                  connectionMap[Integer.parseInt(p[0])][Integer.parseInt(p[1])] = this.inf;
-              if(connectionMap[Integer.parseInt(p[0])][Integer.parseInt(p[1])] == 0)
-                  connectionMap[Integer.parseInt(p[0])][Integer.parseInt(p[1])] = this.inf;
+
           }
           br.close();
         }
@@ -128,7 +123,12 @@ public class MapReader {
         for(int i= 0;i<sizeOfMap;i++)
         {
             for(int j=0;j<sizeOfMap;j++)
-                System.out.print(connectionMap[i][j]+ " ");
+            {
+                if(connectionMap[i][j] == inf)
+                    System.out.print("0"+ " ");
+                else
+                    System.out.print(connectionMap[i][j]+ " ");
+            }
             System.out.println();
         }
     }
