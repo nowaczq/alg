@@ -50,8 +50,15 @@ public class OrderHeap {
     
     public OrderStock pop()
     {
-        //zdjęcie najwyższej dostępnej paczki
-        return this.tab[size];
+        OrderStock tmp = this.tab[0];
+        OrderStock [] tmpTab = new OrderStock[this.tab.length-1];
+        for(int i = 0; i < this.tab.length-1;i++)
+        {
+            tmpTab[i] = this.tab[i+1];
+        }
+        this.size--;
+        this.tab = tmpTab;
+        return tmp;
     }
     
     public OrderStock getPackageByNumber(int num)

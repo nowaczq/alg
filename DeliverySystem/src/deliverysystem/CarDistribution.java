@@ -12,14 +12,15 @@ package deliverysystem;
 public class CarDistribution 
 { 
     private int numberOfCars;
-    private OrderStock []tab;
+    public OrderHeap oH;
     private int []carCapacity;
     private int []road;
     
     public CarDistribution(int n, OrderStock t[])
     {
+        oH = new OrderHeap();
         this.numberOfCars = n;
-        this.tab = t;
+        oH.tab = t;
         this.carCapacity = new int[numberOfCars];
     }
     
@@ -27,26 +28,44 @@ public class CarDistribution
     {
         this.carCapacity[car] = cap;
     }
-    
+    public int []getCarCapacity()
+    {
+        return this.carCapacity;
+    }
+    public int getCarCapacityByNumber(int numb)
+    {
+        return this.carCapacity[numb];
+    }
     public int []packageControlSystem(int car)
     {
         int capacity = this.carCapacity[car];
         this.road = new int[capacity];
-        if(premierCondition(capacity) == 0)
-        {
-            //rozdzielenie paczek z kolejki za pomocą pop
-        }
-        else
-        {
-            //wyjęcie paczek z jednego miasta
-        }
+//        if(premierCondition(capacity) == 0)
+//        {
+            for(int i = 0;i<capacity-1;i++)
+            {
+                road[i] = oH.pop().getDestination();
+            }
+//        {        
+//        else
+//        {
+//            //wyjęcie paczek z jednego miasta
+//        }
         return this.road;
     
     }
     
     private int premierCondition(int cap)
     {
-        // dla cap jest tyle samo paczek do 1 miasta
+        int counter = 0;
+        for(int i = 0; i<cap;i++)
+        {
+            for(int j = 0; j<cap;j++)
+            {
+                
+            }
+        }
+        
         
         return 0;
     }

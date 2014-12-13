@@ -24,6 +24,7 @@ public class MapReader {
     private String []map;
     private int [][]connectionMap;
     private int sizeOfMap;
+    public OrderHeap oR = new OrderHeap();
 
     public MapReader(String fileMap,String fileCon,String oF)
     {
@@ -96,7 +97,7 @@ public class MapReader {
         {
           br = new BufferedReader(new FileReader(this.orderFile));
           amountOfOrders = Integer.parseInt(br.readLine());
-          OrderHeap oR = new OrderHeap();
+          
           while((line = br.readLine()) != null)
           {
               String [] p = line.split("\\s+");
@@ -115,14 +116,14 @@ public class MapReader {
     }
     public void drawMap()
     {
-        for(int i=0;i<sizeOfMap;i++)
+        for(int i=0;i<sizeOfMap-1;i++)
         {
             System.out.print(map[i]+" ");
         }
         System.out.println();
-        for(int i= 0;i<sizeOfMap;i++)
+        for(int i= 0;i<sizeOfMap-1;i++)
         {
-            for(int j=0;j<sizeOfMap;j++)
+            for(int j=0;j<sizeOfMap-1;j++)
             {
                 if(connectionMap[i][j] == inf)
                     System.out.print("0"+ " ");

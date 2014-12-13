@@ -29,7 +29,7 @@ public class OrderStock
     @Override
     public String toString()
     {
-        return priority + " " + load;
+        return priority + " " + load + " " + destination;
     }
 
     public int getListNumber()
