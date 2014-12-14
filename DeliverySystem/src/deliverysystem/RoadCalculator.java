@@ -23,17 +23,17 @@ public class RoadCalculator
             cR.insertCapacity(3, i);
         }
     }
-    //DODAWAĆ ODLEGŁOSCI A NIE WIERZCHOŁKI TUMANIE!!!!!!!
     public int []roadCalc(int startPoint, int [][]map)
     {
         
         int []sum = new int[cR.getCarCapacity().length];
-        for (int i=0; i < cR.getCarCapacity().length;i++)
+        
+        for (int i=0; i < sum.length;i++)
         {
+            int counter = 0;
             System.out.println();
             sum[i] = 0;
             int []cap = cR.packageControlSystem(i);
-            //System.out.println(cap[0]);
             int []tmp;
             tmp = pF.getPath(startPoint, cap[0]);
             tmp[tmp.length -1] = cap[0];
@@ -54,9 +54,10 @@ public class RoadCalculator
                 }
             }
             System.out.println("Start: " +startPoint + " koniec: " + cap[0] + " suma: " + sum[i]);
-                     
+             
             for (int j = 1; j < cap.length; j++)
             {
+                
                 tmp = pF.getPath(cap[j-1], cap[j]); 
                 tmp[tmp.length -1] = cap[j];
                 System.out.println("trasa: ");

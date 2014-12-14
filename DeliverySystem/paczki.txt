@@ -6,8 +6,8 @@
 003 3 1 Paczka_indeksów_dla_PW 80
 003 3 4 Paczka_indeksów_dla_PW 84
 003 3 0 Paczka_indeksów_dla_PW 14
-003 3 0 Paczka_indeksów_dla_PW 90
-003 3 0 Paczka_indeksów_dla_PW 54
+003 3 2 Paczka_indeksów_dla_PW 90
+003 3 1 Paczka_indeksów_dla_PW 54
 003 3 0 Paczka_indeksów_dla_PW 53
 003 3 0 Paczka_indeksów_dla_PW 12
 003 3 0 Paczka_indeksów_dla_PW 41

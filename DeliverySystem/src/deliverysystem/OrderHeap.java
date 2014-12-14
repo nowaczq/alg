@@ -70,7 +70,7 @@ public class OrderHeap {
     
     public void heapPrinter()
     {
-        //heapSort();
+        
         for (int i=0;i<size;i++) {
             System.out.println(tab[i]);
         }

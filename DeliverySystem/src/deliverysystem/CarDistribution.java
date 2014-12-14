@@ -40,33 +40,11 @@ public class CarDistribution
     {
         int capacity = this.carCapacity[car];
         this.road = new int[capacity];
-//        if(premierCondition(capacity) == 0)
-//        {
-            for(int i = 0;i<capacity-1;i++)
-            {
-                road[i] = oH.pop().getDestination();
-            }
-//        {        
-//        else
-//        {
-//            //wyjęcie paczek z jednego miasta
-//        }
+        for(int i = 0;i<capacity;i++)
+        {
+            road[i] = oH.pop().getDestination();
+        }
         return this.road;
     
-    }
-    
-    private int premierCondition(int cap)
-    {
-        int counter = 0;
-        for(int i = 0; i<cap;i++)
-        {
-            for(int j = 0; j<cap;j++)
-            {
-                
-            }
-        }
-        
-        
-        return 0;
     }
 }
