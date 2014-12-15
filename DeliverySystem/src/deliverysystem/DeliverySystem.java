@@ -25,7 +25,19 @@ public class DeliverySystem {
         RoadCalculator rC = new RoadCalculator(len, mR.getConnectionMap(),5,mR.oR.tab);
         int []s = rC.roadCalc(3,mR.getConnectionMap());
         for(int i = 0; i< s.length; i++)
-            System.out.println(s[i]);
+               System.out.println(s[i]);
+        String [][] rd = rC.getCarRoadRecorder();
+        for(int i = 0; i < 15;i++)
+        {
+            String []tmp;
+            tmp = rd[i][1].split("");
+           // System.out.println(rd[i][1]);
+            //for(int e = 0; e< tmp.length;e++)
+            //    System.out.println(tmp[e]);
+            //System.out.println();
+        }
+        Window w = new Window(rd);
     }
+    
     
 }

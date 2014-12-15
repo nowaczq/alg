@@ -13,6 +13,7 @@ public class RoadCalculator
 {
     PathfinderDijkstra pF;
     CarDistribution cR;
+    private String [][]carRoadRecorder;
     
     public RoadCalculator(int size, int [][]tab, int n, OrderStock []t)
     {
@@ -23,15 +24,21 @@ public class RoadCalculator
             cR.insertCapacity(3, i);
         }
     }
+    public String [][] getCarRoadRecorder()
+    {
+        return this.carRoadRecorder;
+    }
     public int []roadCalc(int startPoint, int [][]map)
     {
         
         int []sum = new int[cR.getCarCapacity().length];
-        
-        for (int i=0; i < sum.length;i++)
+        carRoadRecorder = new String[cR.oH.tab.length][2];
+        int counter = 0;
+        for (int i=0; i < cR.getCarCapacity().length;i++)
         {
-            int counter = 0;
+            
             System.out.println();
+            String road = new String();
             sum[i] = 0;
             int []cap = cR.packageControlSystem(i);
             int []tmp;
@@ -40,8 +47,15 @@ public class RoadCalculator
             
             System.out.println("trasa: ");
             for(int o = 0; o <tmp.length; o++)
+            {
                 System.out.print(tmp[o]);
+                road +=String.valueOf(tmp[o]);
+            }
             System.out.println();
+            System.out.println(road);
+            carRoadRecorder[counter][0] = String.valueOf(i);
+            carRoadRecorder[counter][1] = road;
+            counter++;
             if(tmp.length == 2)
             {
                 sum[i] += map[tmp[0]][tmp[1]];
@@ -57,12 +71,15 @@ public class RoadCalculator
              
             for (int j = 1; j < cap.length; j++)
             {
-                
+                road = new String();
                 tmp = pF.getPath(cap[j-1], cap[j]); 
                 tmp[tmp.length -1] = cap[j];
                 System.out.println("trasa: ");
                 for(int o = 0; o <tmp.length; o++)
+                {
                     System.out.print(tmp[o]);
+                    road +=String.valueOf(tmp[o]);
+                }
                 System.out.println();
                 if(tmp.length == 2)
                 {
@@ -76,6 +93,10 @@ public class RoadCalculator
                     }
                 }
                 System.out.println("Start: " + cap[j-1] + " koniec: " + cap[j] + " suma: " + sum[i]);
+                carRoadRecorder[counter][0] = String.valueOf(i);
+                carRoadRecorder[counter][1] = road;
+                System.out.println(counter);
+                counter++;
 
             }
             System.out.println("Zmiana auta");
