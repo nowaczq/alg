@@ -11,7 +11,7 @@ package deliverysystem;
  */
 public class DeliverySystem {
 
-    public static void main(String[] args) 
+    public static void main(String[] args) throws InterruptedException 
     {
         String iF = "mapa.txt";
         String mF = "polaczenia.txt";
@@ -27,16 +27,10 @@ public class DeliverySystem {
         for(int i = 0; i< s.length; i++)
                System.out.println(s[i]);
         String [][] rd = rC.getCarRoadRecorder();
-        for(int i = 0; i < 15;i++)
-        {
-            String []tmp;
-            tmp = rd[i][1].split("");
-           // System.out.println(rd[i][1]);
-            //for(int e = 0; e< tmp.length;e++)
-            //    System.out.println(tmp[e]);
-            //System.out.println();
-        }
-        Window w = new Window(rd);
+        
+        int [][]map = mR.getConnectionMap();
+
+        Window w = new Window(rd,map,mR.oR.getTab());
     }
     
     

@@ -63,7 +63,7 @@ public class OrderHeap {
     
     public OrderStock getPackageByNumber(int num)
     {
-        //pobranie paczki zgodnie z przekazanym numerem
+        
         
         return this.tab[num];
     }
